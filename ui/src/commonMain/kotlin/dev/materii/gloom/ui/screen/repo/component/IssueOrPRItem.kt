@@ -32,7 +32,7 @@ import dev.materii.gloom.ui.theme.gloomColorScheme
 import dev.materii.gloom.ui.util.parsedColor
 import dev.materii.gloom.util.TimeUtils.getTimeSince
 import kotlinx.collections.immutable.ImmutableList
-import kotlinx.datetime.Instant
+import kotlin.time.Instant
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

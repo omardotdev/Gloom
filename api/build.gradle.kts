@@ -1,28 +1,26 @@
+import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryExtension
 import com.codingfeline.buildkonfig.compiler.FieldSpec
 
 plugins {
-    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.multiplatform.library)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.apollo)
     alias(libs.plugins.buildkonfig)
     alias(libs.plugins.aboutlibraries)
 }
 
-android {
-    namespace = "dev.materii.gloom.api"
-
-    defaultConfig {
-        compileSdk = 35
-        minSdk = 21
-    }
-}
-
 kotlin {
-    androidTarget()
+    extensions.configure<KotlinMultiplatformAndroidLibraryExtension> {
+        namespace = "dev.materii.gloom.api"
+
+        compileSdk = 37
+        minSdk = 23
+    }
+
     jvm("desktop")
 
-    jvmToolchain(17)
+    jvmToolchain(21)
 
     sourceSets {
         commonMain {
@@ -55,7 +53,7 @@ apollo {
 
         mapScalarToKotlinString("URI")
         mapScalarToKotlinString("HTML")
-        mapScalar("Date", "kotlinx.datetime.Instant", "dev.materii.gloom.api.util.DateAdapter")
+        mapScalar("Date", "kotlin.time.Instant", "dev.materii.gloom.api.util.DateAdapter")
         mapScalar(
             "DateTime",
             "kotlinx.datetime.Instant",

@@ -1,31 +1,27 @@
+import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryExtension
+import org.gradle.kotlin.dsl.configure
+
 plugins {
-    alias(libs.plugins.android.library)
     alias(libs.plugins.compose)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.multiplatform.library)
     alias(libs.plugins.aboutlibraries)
-}
-
-android {
-    namespace = "dev.materii.gloom.ui"
-
-    defaultConfig {
-        compileSdk = 35
-        minSdk = 21
-    }
-
-    buildFeatures {
-        compose = true
-    }
 }
 
 kotlin {
     applyDefaultHierarchyTemplate()
 
-    androidTarget()
+    extensions.configure<KotlinMultiplatformAndroidLibraryExtension> {
+        namespace = "dev.materii.gloom.ui"
+
+        compileSdk = 36
+        minSdk = 23
+    }
+
     jvm("desktop")
 
-    jvmToolchain(17)
+    jvmToolchain(21)
 
     compilerOptions {
         freeCompilerArgs.add("-Xexpect-actual-classes")
@@ -40,9 +36,9 @@ kotlin {
                 implementation(libs.bundles.kotlinx)
                 implementation(libs.bundles.voyager)
 
-                api(compose.material3)
-                implementation(compose.materialIconsExtended)
-                implementation(compose.runtime)
+                api("org.jetbrains.compose.material3:material3:1.9.0")
+                implementation(libs.material.icons.extended)
+                implementation(libs.runtime)
 
                 implementation(libs.coil.compose)
                 implementation(libs.coil.network.ktor3)

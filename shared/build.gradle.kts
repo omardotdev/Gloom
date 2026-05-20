@@ -1,31 +1,29 @@
+import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryExtension
+import com.codingfeline.buildkonfig.compiler.FieldSpec
+import org.gradle.kotlin.dsl.configure
+
 plugins {
-    alias(libs.plugins.android.library)
     alias(libs.plugins.compose)
+    alias(libs.plugins.buildkonfig)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.multiplatform.library)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.aboutlibraries)
     alias(libs.plugins.moko.resources)
 }
 
-android {
-    namespace = "dev.materii.gloom.shared"
-
-    defaultConfig {
-        compileSdk = 35
-        minSdk = 21
-    }
-
-    buildFeatures {
-        buildConfig = true
-    }
-}
-
 kotlin {
-    androidTarget()
+    extensions.configure<KotlinMultiplatformAndroidLibraryExtension> {
+        namespace = "dev.materii.gloom.shared"
+
+        compileSdk = 37
+        minSdk = 23
+    }
+
     jvm("desktop")
 
-    jvmToolchain(17)
+    jvmToolchain(21)
 
     compilerOptions {
         freeCompilerArgs.add("-Xexpect-actual-classes")
@@ -34,7 +32,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation(compose.runtime)
+                implementation(libs.runtime)
                 implementation(libs.bundles.kotlinx)
 
                 implementation(libs.apollo.runtime)

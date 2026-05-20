@@ -1,13 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.aboutlibraries)
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 
     compilerOptions {
         freeCompilerArgs.addAll("-Xcontext-parameters", "-Xexpect-actual-classes")
@@ -15,13 +14,13 @@ kotlin {
 }
 
 android {
-    compileSdk = 35
+    compileSdk = 37
     namespace = "dev.materii.gloom"
 
     defaultConfig {
         applicationId = "dev.materii.gloom"
-        minSdk = 21
-        targetSdk = 35
+        minSdk = 23
+        targetSdk = 37
         versionCode = 100
         versionName = "0.1.0"
 
@@ -53,16 +52,6 @@ android {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
         }
-    }
-
-    applicationVariants.all {
-        val variant = this
-        outputs
-            .map { it as com.android.build.gradle.internal.api.BaseVariantOutputImpl }
-            .forEach { output ->
-                val outputFileName = "gloom-${variant.buildType.name}.apk"
-                output.outputFileName = outputFileName
-            }
     }
 
     androidResources {
