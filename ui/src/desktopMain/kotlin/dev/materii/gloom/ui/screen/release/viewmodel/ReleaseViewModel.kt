@@ -1,6 +1,8 @@
 package dev.materii.gloom.ui.screen.release.viewmodel
 
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import cafe.adriel.voyager.core.model.screenModelScope
 import dev.materii.gloom.api.repository.GraphQLRepository
 import dev.materii.gloom.api.util.getOrNull
