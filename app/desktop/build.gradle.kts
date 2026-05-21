@@ -20,6 +20,28 @@ kotlin {
                 exclude(group = "org.jetbrains.compose.material", module = "material")
             }
 
+            api(libs.aboutlibraries.core)
+
+            implementation(libs.bundles.kotlinx)
+            implementation(libs.bundles.voyager)
+
+            api("org.jetbrains.compose.material3:material3:1.9.0")
+            implementation(libs.material.icons.extended)
+            implementation(libs.runtime)
+
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor3)
+            implementation(libs.compose.pdf)
+            implementation(libs.compose.webview.multiplatform)
+            implementation(libs.highlights)
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.ktor.client.core)
+            implementation(libs.multiplatform.paging)
+            implementation(libs.multiplatform.paging.compose)
+            implementation(libs.zoomable)
+            implementation(libs.moko.resources.compose)
+
             implementation(project(":api"))
             implementation(project(":shared"))
             implementation(project(":ui"))

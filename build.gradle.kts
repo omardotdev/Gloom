@@ -28,6 +28,7 @@ allprojects {
         google()
         mavenCentral()
         maven("https://jitpack.io")
+        maven("https://jogamp.org/deployment/maven")
     }
 
     // Detekt
