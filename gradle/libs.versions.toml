@@ -128,7 +128,6 @@ moko-resources = { id = "dev.icerock.mobile.multiplatform-resources", version.re
 
 # Kotlin
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
@@ -144,7 +143,6 @@ buildkonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildkonfig"
 
 
 [bundles]
-
 apollo = ["apollo-runtime", "apollo-normalized-cache", "apollo-adapters-datetime"]
 kotlinx = ["kotlinx-coroutines-core", "kotlinx-datetime", "kotlinx-serialization-json", "kotlinx-collections-immutable"]
 ktor = ["ktor-serialization-kotlinx-json", "ktor-client-logging", "ktor-client-core", "ktor-client-content-negotiation", "ktor-client-cio"]
