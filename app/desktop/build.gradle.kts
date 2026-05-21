@@ -25,7 +25,7 @@ kotlin {
             implementation(libs.bundles.kotlinx)
             implementation(libs.bundles.voyager)
 
-            api("org.jetbrains.compose.material3:material3:1.9.0")
+            api("org.jetbrains.compose.material3:material3:1.11.0-alpha07")
             implementation(libs.material.icons.extended)
             implementation(libs.runtime)
 
