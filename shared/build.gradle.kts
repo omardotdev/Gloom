@@ -1,10 +1,8 @@
 import com.android.build.api.dsl.KotlinMultiplatformAndroidLibraryExtension
-import com.codingfeline.buildkonfig.compiler.FieldSpec
 import org.gradle.kotlin.dsl.configure
 
 plugins {
     alias(libs.plugins.compose)
-    alias(libs.plugins.buildkonfig)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.multiplatform.library)
@@ -17,8 +15,8 @@ kotlin {
     extensions.configure<KotlinMultiplatformAndroidLibraryExtension> {
         namespace = "dev.materii.gloom.shared"
 
-        compileSdk = 37
-        minSdk = 23
+        compileSdk = libs.versions.compileSdk.get().toInt()
+        minSdk = libs.versions.minSdk.get().toInt()
     }
 
     jvm("desktop")

@@ -15,8 +15,8 @@ kotlin {
     extensions.configure<KotlinMultiplatformAndroidLibraryExtension> {
         namespace = "dev.materii.gloom.ui"
 
-        compileSdk = 36
-        minSdk = 23
+        compileSdk = libs.versions.compileSdk.get().toInt()
+        minSdk = libs.versions.minSdk.get().toInt()
     }
 
     jvm("desktop")

@@ -20,7 +20,7 @@ import coil3.compose.AsyncImage
 import dev.materii.gloom.ui.component.BadgedItem
 import dev.materii.gloom.ui.util.thenIf
 import dev.materii.gloom.util.TimeUtils
-import kotlin.time.Instant
+import kotlinx.datetime.Instant
 
 @Composable
 fun FeedActor(

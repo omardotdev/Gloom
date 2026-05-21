@@ -14,8 +14,8 @@ kotlin {
     extensions.configure<KotlinMultiplatformAndroidLibraryExtension> {
         namespace = "dev.materii.gloom.api"
 
-        compileSdk = 37
-        minSdk = 23
+        compileSdk = libs.versions.compileSdk.get().toInt()
+        minSdk = libs.versions.minSdk.get().toInt()
     }
 
     jvm("desktop")
@@ -36,6 +36,10 @@ kotlin {
     }
 }
 
+tasks.matching { it.name == "prepareAndroidMainArtProfile" }.configureEach {
+    dependsOn(tasks.named("generateBuildKonfig"))
+}
+
 apollo {
     service("service") {
         packageName = "dev.materii.gloom.gql"
@@ -53,7 +57,7 @@ apollo {
 
         mapScalarToKotlinString("URI")
         mapScalarToKotlinString("HTML")
-        mapScalar("Date", "kotlin.time.Instant", "dev.materii.gloom.api.util.DateAdapter")
+        mapScalar("Date", "kotlinx.datetime.Instant", "dev.materii.gloom.api.util.DateAdapter")
         mapScalar(
             "DateTime",
             "kotlinx.datetime.Instant",

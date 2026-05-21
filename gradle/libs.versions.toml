@@ -1,4 +1,11 @@
 [versions]
+# compileSdk and targetSdk (and also minSdk)
+#noinspection UnusedVersionCatalogEntry
+compileSdk = "37"
+#noinspection UnusedVersionCatalogEntry
+minSdk = "23"
+#noinspection UnusedVersionCatalogEntry
+targetSdk = "37"
 
 # AndroidX
 androidx-browser = "1.10.0"
@@ -8,13 +15,13 @@ androidx-lifecycle-runtime-ktx = "2.10.0"
 
 # Compose
 androidx-activity-compose = "1.13.0"
-apollo-adapters-kotlinx-datetime = "4.1.1"
 compose-multiplatform = "1.11.0"
 
 # KotlinX
 kotlinx-collections = "0.4.0"
 kotlinx-coroutines-core = "1.11.0"
-kotlinx-datetime = "0.8.0"
+#noinspection NewerVersionAvailable we still use KotlinXAdapter
+kotlinx-datetime = "0.6.2"
 kotlinx-serialization = "1.11.0"
 
 # Plugins
@@ -25,11 +32,11 @@ kotlin = "2.3.21"
 # Misc
 aboutlibraries = "14.2.0"
 apollo = "5.0.0"
+#noinspection NewerVersionAvailable we still use KotlinXAdapter
 apollo-adapters = "0.0.6"
 buildkonfig = "0.21.1"
 coil = "3.4.0"
 compose-pdf = "1.2.0"
-compose-rules = "0.5.9"
 compose-webview-multiplatform = "2.0.3"
 highlights = "1.1.0"
 koin = "4.2.1"
@@ -66,8 +73,6 @@ androidx-activity-compose = { group = "androidx.activity", name = "activity-comp
 
 # Detekt
 detekt-api = { group = "io.gitlab.arturbosch.detekt", name = "detekt-api", version.ref = "detekt" }
-detekt-compose-rules = { group = "io.nlopez.compose.rules", name = "detekt", version.ref = "compose-rules" }
-detekt-formatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
 detekt-test = { group = "io.gitlab.arturbosch.detekt", name = "detekt-test", version.ref = "detekt" }
 
 # Koin

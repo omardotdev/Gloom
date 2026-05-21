@@ -14,13 +14,13 @@ kotlin {
 }
 
 android {
-    compileSdk = 37
+    compileSdk = libs.versions.compileSdk.get().toInt()
     namespace = "dev.materii.gloom"
 
     defaultConfig {
         applicationId = "dev.materii.gloom"
-        minSdk = 23
-        targetSdk = 37
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 100
         versionName = "0.1.0"
 

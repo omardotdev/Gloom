@@ -17,7 +17,7 @@ import dev.materii.gloom.Res
 import dev.materii.gloom.ui.component.Avatar
 import dev.materii.gloom.ui.util.annotatingStringResource
 import dev.materii.gloom.util.format
-import kotlin.time.Instant
+import kotlinx.datetime.Instant
 
 @Composable
 fun ReleaseAuthor(

@@ -21,3 +21,5 @@
 #-renamesourcefileattribute SourceFile
 -keep class org.opcsoft.prettytime.i18n.**
 -dontwarn org.slf4j.impl.StaticLoggerBinder
+-dontwarn kotlinx.datetime.Instant$Companion
+-dontwarn kotlinx.datetime.Instant
